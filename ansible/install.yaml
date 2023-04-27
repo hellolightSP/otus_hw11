@@ -1,0 +1,9 @@
+---
+- name: Configuration nginx
+  hosts: all
+  become: yes
+  vars:
+    nginx_listen_port: 8080
+
+  roles:
+    - { role: nginx, when: '"RedHat" in ansible_os_family' }
